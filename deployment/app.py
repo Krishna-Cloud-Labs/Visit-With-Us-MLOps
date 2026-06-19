@@ -162,13 +162,18 @@ if st.button("Predict"):
         "Designation":[Designation]
     })
 
-    prediction = model.predict(data)[0]
+prediction = model.predict(data)[0]
 
-    if prediction == 1:
-        st.success(
-            "Customer is likely to purchase the Wellness Package"
-        )
-    else:
-        st.error(
-            "Customer is unlikely to purchase the Wellness Package"
-        )
+probability = model.predict_proba(data)[0]
+
+st.write("Raw Prediction:", prediction)
+st.write("Probability [Not Purchase, Purchase]:", probability)
+
+if prediction == 1:
+    st.success(
+        f"Customer is likely to purchase the Wellness Package ({probability[1]:.2%})"
+    )
+else:
+    st.error(
+        f"Customer is unlikely to purchase the Wellness Package ({probability[1]:.2%})"
+    )
