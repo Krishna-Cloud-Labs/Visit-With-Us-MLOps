@@ -27,13 +27,31 @@ from sklearn.metrics import (
 
 # MLFLOW CONFIGURATION
 
+# MLFLOW CONFIGURATION
+
+print("=" * 60)
+print("MLFLOW ENV VARIABLES")
+
+for k, v in os.environ.items():
+    if "MLFLOW" in k:
+        print(f"{k} = {v}")
+
+print("=" * 60)
+
+print("Before cleanup:", os.environ.get("MLFLOW_TRACKING_URI"))
+
+# Remove GitHub Actions override
+os.environ.pop("MLFLOW_TRACKING_URI", None)
+
+print("After cleanup:", os.environ.get("MLFLOW_TRACKING_URI"))
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
+
+print("Tracking URI after set:", mlflow.get_tracking_uri())
 
 mlflow.set_experiment(
     "Visit-With-Us-Package-Prediction-Experiment"
 )
-
 
 # HUGGING FACE API
 
