@@ -28,7 +28,7 @@ from sklearn.metrics import (
 # MLFLOW CONFIGURATION
 
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+mlflow.set_tracking_uri("http://127.0.0.1:5001")
 
 mlflow.set_experiment(
     "Visit-With-Us-Package-Prediction-Experiment"
@@ -266,12 +266,12 @@ with mlflow.start_run():
     # SAVE MODEL
 
     os.makedirs(
-        "Visit-With-Us-MLOps/model",
+        "model",
         exist_ok=True
     )
 
     model_path = (
-        "Visit-With-Us-MLOps/model/"
+        "model/"
         "tourism_model.pkl"
     )
 

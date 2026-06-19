@@ -68,18 +68,15 @@ print("Test Shape:", X_test.shape)
 # Create Processed Folder
 
 os.makedirs(
-
-    "Visit-With-Us-MLOps/data/processed",
-
+    "data/processed",
     exist_ok=True
-
 )
 
 # Save Files
 
 X_train.to_csv(
 
-    "Visit-With-Us-MLOps/data/processed/Xtrain.csv",
+    "data/processed/Xtrain.csv",
 
     index=False
 
@@ -87,7 +84,7 @@ X_train.to_csv(
 
 X_test.to_csv(
 
-    "Visit-With-Us-MLOps/data/processed/Xtest.csv",
+    "data/processed/Xtest.csv",
 
     index=False
 
@@ -95,7 +92,7 @@ X_test.to_csv(
 
 y_train.to_csv(
 
-    "Visit-With-Us-MLOps/data/processed/ytrain.csv",
+    "data/processed/ytrain.csv",
 
     index=False
 
@@ -103,7 +100,7 @@ y_train.to_csv(
 
 y_test.to_csv(
 
-    "Visit-With-Us-MLOps/data/processed/ytest.csv",
+    "data/processed/ytest.csv",
 
     index=False
 
@@ -115,7 +112,7 @@ print("\nTrain/Test Files Saved Successfully")
 
 api.upload_folder(
 
-    folder_path="Visit-With-Us-MLOps/data/processed",
+    folder_path="data/processed",
 
     repo_id="krisna-Labs/visit-with-us-dataset",
 
